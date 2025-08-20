@@ -11,10 +11,10 @@
           <h2 class="post-card__title">{{ post.title }}</h2>
           <p class="post-card__content">{{ post.content.slice(0,200) }}...</p>
           <router-link :to="`/blog/${post.id}`">Read more</router-link>
-          <div>
-
+          <div class="post-card__meta">
+            <div class="post-card__meta-date">{{post.date}}</div>
+            <div class="post-card__meta-author">{{post.author}}</div>
           </div>
-          <small class="post-card__meta">{{post.date}}, {{post.author}}</small>
         </div>
       </div>
     </div>
@@ -46,11 +46,8 @@ export default {
   gap: 20px;
 }
 
-.blog-view__post-card {
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 20px;
-  width: 49%;
+.post-card {
+  @include post-card;
 
   &__title {
     margin-bottom: 10px;
@@ -58,6 +55,13 @@ export default {
 
   &__content {
     text-align: left;
+  }
+
+  &__meta {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    font-size: $font-size-small;
   }
 }
 

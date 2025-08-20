@@ -1,12 +1,46 @@
-@mixin title {
-  font-size: 48px;
-  margin-bottom: 20px;
-
+@mixin title($font-size: 48px, $margin-bottom: 20px) {
+  font-size: $font-size;
+  margin-bottom: $margin-bottom;
 }
 
+
 @mixin post-card {
-  border: 1px solid black;
+  border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   width: 49%;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex-flow: column wrap;
+}
+
+
+@mixin flex-row($gap: 20px) {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: $gap;
+}
+
+@mixin button-base {
+  border: 1px solid rgb(209, 207, 207);
+  border-radius: 10px;
+  width: 80px;
+  height: 40px;
+  font-size: $font-size-base;
+  font-weight: 600;
+  line-height: 14px;
+  padding: 12px 16px;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+
+  button:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  button:focus-visible {
+    box-shadow: none;
+  }
 }

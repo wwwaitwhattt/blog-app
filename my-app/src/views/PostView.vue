@@ -3,16 +3,28 @@
     <div class="post-view" v-if="post">
       <h1 class="post-view__title">{{ post.title }}</h1>
       <p class="post-view__content">{{ post.content }}</p>
-      <button class="post-view__button-delete">Delete</button>
-      <button class="post-view__button-edit">Edit</button>
+      <div class="post-view__meta">
+        <div class="post-view__meta-date">{{post.date}}</div>
+        <div class="post-view__meta-author">{{post.author}}</div>
+      </div>
+      <div class="post-view__actions">
+        <button-green>Edit</button-green>
+        <button-red>Delete</button-red>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import ButtonRed from "@/components/ButtonRed";
+import ButtonGreen from "@/components/ButtonGreen";
 
 export default {
+  components: {
+    ButtonRed,
+    ButtonGreen,
+  },
  data() {
    return {
    }
@@ -30,14 +42,19 @@ export default {
 <style>
 
 .post-view {
-  margin: 50px;
+  @include post-card;
 
   &__content {
-    text-align: justify;
+    text-align: left;
   }
+
+  &__actions {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+
 }
 
-.post-view__content {
-  text-align: left;
-}
+
 </style>

@@ -20,7 +20,7 @@ a {
 /* ------------------------
 ------------------------ */
 body {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f9f9f9;
@@ -43,3 +43,10 @@ p {
   margin: 0;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/*# sourceMappingURL=main.css.map */
