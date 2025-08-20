@@ -7,6 +7,7 @@ import AddPost from '../views/AddPost'
 import EditPost from '../views/EditPost'
 // import DeletePost from '../views/DeletePost'
 import Login from '../views/LoginView'
+import About from '../views/AboutView'
 
 
 Vue.use(VueRouter)
@@ -20,7 +21,7 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: About
   },
   {
     path: '/blog',
