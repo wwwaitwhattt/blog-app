@@ -4,13 +4,17 @@
       <h1 class="blog-view__title">Blog Page</h1>
       <p class="blog-view__description">Here you can view all community posts.</p>
       <div class="blog-view__content">
-        <div class="blog-view__post-card"
+        <div class="post-card"
              v-for="post in posts"
              :key="post.id"
         >
-          <h2 class="blog-view__post-card-title">{{ post.title }}</h2>
-          <p class="blog-view__post-card-content">{{ post.content.slice(0,200) }}...</p>
+          <h2 class="post-card__title">{{ post.title }}</h2>
+          <p class="post-card__content">{{ post.content.slice(0,200) }}...</p>
           <router-link :to="`/blog/${post.id}`">Read more</router-link>
+          <div>
+
+          </div>
+          <small class="post-card__meta">{{post.date}}, {{post.author}}</small>
         </div>
       </div>
     </div>
@@ -48,11 +52,11 @@ export default {
   padding: 20px;
   width: 49%;
 
-  &-title {
+  &__title {
     margin-bottom: 10px;
   }
 
-  &-content {
+  &__content {
     text-align: left;
   }
 }
