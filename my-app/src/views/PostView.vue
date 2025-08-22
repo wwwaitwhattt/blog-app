@@ -8,7 +8,7 @@
         <div class="post-view__meta-author">{{post.author}}</div>
       </div>
       <div class="post-view__actions">
-        <button-green>Edit</button-green>
+        <button-default>Edit</button-default>
         <button-red>Delete</button-red>
       </div>
     </div>
@@ -18,12 +18,12 @@
 <script>
 import { mapGetters } from "vuex";
 import ButtonRed from "@/components/ButtonRed";
-import ButtonGreen from "@/components/ButtonGreen";
+import ButtonDefault from "@/components/ButtonDefault";
 
 export default {
   components: {
+    ButtonDefault,
     ButtonRed,
-    ButtonGreen,
   },
  data() {
    return {
@@ -39,10 +39,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 
 .post-view {
   @include post-card;
+  gap: 20px;
 
   &__content {
     text-align: left;
@@ -51,7 +52,15 @@ export default {
   &__actions {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__meta {
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
+    color: rgba(44, 62, 80, 0.7);
   }
 
 }

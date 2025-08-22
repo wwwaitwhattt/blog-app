@@ -3,19 +3,22 @@
     <div class="blog-view">
       <h1 class="blog-view__title">Blog Page</h1>
       <p class="blog-view__description">Here you can view all community posts.</p>
+      <router-link to="/add">
+        <button-default>Add</button-default>
+      </router-link>
       <div class="blog-view__content">
-        <div class="post-card"
+        <router-link :to="`/blog/${post.id}`" class="post-card"
              v-for="post in posts"
              :key="post.id"
+             @click="$router.push(`/blog/${post.id}`)"
         >
           <h2 class="post-card__title">{{ post.title }}</h2>
           <p class="post-card__content">{{ post.content.slice(0,200) }}...</p>
-          <router-link :to="`/blog/${post.id}`">Read more</router-link>
           <div class="post-card__meta">
             <div class="post-card__meta-date">{{post.date}}</div>
             <div class="post-card__meta-author">{{post.author}}</div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -23,17 +26,27 @@
 
 <script>
 import {posts} from "@/store/posts";
+import ButtonDefault from "@/components/ButtonDefault";
 
 export default {
   data() {
     return {
       posts
     }
+  },
+  components: {
+    ButtonDefault
   }
 }
 </script>
 
 <style scoped lang="scss">
+
+.button--default {
+  margin-bottom: 20px;
+  display: inline-block;
+
+}
 
 .blog-view__title, .blog-view__description {
   margin-bottom: 20px;
@@ -48,6 +61,7 @@ export default {
 
 .post-card {
   @include post-card;
+  cursor: pointer;
 
   &__title {
     margin-bottom: 10px;
@@ -55,6 +69,7 @@ export default {
 
   &__content {
     text-align: left;
+    flex: 1;
   }
 
   &__meta {
@@ -62,6 +77,7 @@ export default {
     flex-flow: row nowrap;
     justify-content: space-between;
     font-size: $font-size-small;
+    color: rgba(44, 62, 80, 0.7);
   }
 }
 
