@@ -25,17 +25,16 @@
 </template>
 
 <script>
-import {posts} from "@/store/posts";
 import ButtonDefault from "@/components/ButtonDefault";
 
 export default {
-  data() {
-    return {
-      posts
-    }
-  },
   components: {
     ButtonDefault
+  },
+  computed: {
+    posts() {
+      return this.$store.state.posts
+    }
   }
 }
 </script>
@@ -62,10 +61,7 @@ export default {
 .post-card {
   @include post-card;
   cursor: pointer;
-
-  &__title {
-    margin-bottom: 10px;
-  }
+  gap:20px;
 
   &__content {
     text-align: left;

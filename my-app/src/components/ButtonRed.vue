@@ -1,10 +1,19 @@
 <script>
-
+export default {
+  props: {
+    type: {
+      type: String,
+      default: 'button'
+    }
+  }
+}
 </script>
 
 <template>
-    <button class="button--red">
-      <slot></slot>
+    <button class="button--red"
+            @click="$emit('click', $event)"
+            v-bind="$attrs">
+      <slot/>
     </button>
 </template>
 

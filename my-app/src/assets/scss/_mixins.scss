@@ -8,12 +8,13 @@
   display: flex;
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 50px;
+  padding: 20px;
   flex: 1 1 calc(50% - 20px);
   min-width: 280px;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   flex-flow: column wrap;
+  overflow-wrap: anywhere;
 }
 
 
@@ -27,7 +28,7 @@
 @mixin button-base {
   border: 1px solid rgb(209, 207, 207);
   border-radius: 10px;
-  width: 80px;
+  width: 90px;
   height: 40px;
   font-size: $font-size-base;
   font-weight: 600;
@@ -36,4 +37,21 @@
   text-align: center;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   cursor: pointer;
+}
+
+@mixin input-box {
+    border: 2px solid transparent;
+    padding: 1em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+
+  :hover,
+  :focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+  }
 }
