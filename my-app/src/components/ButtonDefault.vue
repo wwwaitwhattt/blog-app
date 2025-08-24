@@ -3,7 +3,9 @@
 </script>
 
 <template>
-  <button class="button--default">
+  <button class="button--default"
+          @click="$emit('click', $event)"
+          v-bind="$attrs">
     <slot></slot>
   </button>
 </template>

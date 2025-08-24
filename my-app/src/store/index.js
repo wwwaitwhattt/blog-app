@@ -1,12 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { posts } from './posts.js'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    posts: JSON.parse(localStorage.getItem('posts')) || posts
+    posts: JSON.parse(localStorage.getItem('posts'))
   },
   getters: {
     getPostById: (state) => (id) => {
@@ -22,10 +21,10 @@ export default new Vuex.Store({
       state.posts.push(post)
       localStorage.setItem('posts', JSON.stringify(state.posts))
     },
-    editPost: (state, id) => {
-      const index = state.posts.findIndex(post => post.id === id)
+    editPost: (state, updatedPost) => {
+      const index = state.posts.findIndex(post => post.id === updatedPost.id)
       if (index !== -1) {
-        Vue.set(state.posts, index, id);
+        Vue.set(state.posts, index, updatedPost);
         localStorage.setItem('posts', JSON.stringify(state.posts))
       }
     }

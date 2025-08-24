@@ -49,4 +49,44 @@ p {
   padding: 0 20px;
 }
 
+.add-post__form, .edit-post__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 280px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex-flow: column wrap;
+}
+.add-post__input, .edit-post__input {
+  border: 2px solid transparent;
+  padding: 1em;
+  outline: none;
+  overflow: hidden;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+.add-post__input :hover,
+.add-post__input :focus, .edit-post__input :hover,
+.edit-post__input :focus {
+  border: 2px solid #4A9DEC;
+  box-shadow: 0px 0px 0px 7px rgba(74, 157, 236, 0.2);
+  background-color: white;
+}
+.add-post__actions, .edit-post__actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.input-textarea {
+  height: 20rem;
+  resize: none;
+  overflow-y: auto;
+}
+
 /*# sourceMappingURL=main.css.map */

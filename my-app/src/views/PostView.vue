@@ -8,15 +8,15 @@
         <div class="post-view__meta-author">{{post.author}}</div>
       </div>
       <div class="post-view__actions">
-        <button-default>Edit</button-default>
-        <button-red>Delete</button-red>
+        <button-default @click="$router.push(`/edit/${post.id}`)">Edit</button-default>
+        <button-red @click="onDelete">Delete</button-red>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import {mapGetters, mapMutations} from "vuex";
 import ButtonRed from "@/components/ButtonRed";
 import ButtonDefault from "@/components/ButtonDefault";
 
@@ -35,6 +35,13 @@ export default {
      const id = Number(this.$route.params.id);
      return this.getPostById(id);
     }
+  },
+  methods: {
+    ...mapMutations(['deletePost']),
+    onDelete() {
+      this.deletePost(this.post.id);
+      this.$router.push('/blog');
+    },
   }
 }
 </script>

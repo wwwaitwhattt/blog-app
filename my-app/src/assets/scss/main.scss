@@ -1,9 +1,43 @@
-@import "global";
 @import "mixins";
 @import "variables";
+@import "global";
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+
+///// POSTS EDIT/ADD /////
+.add-post, .edit-post{
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 280px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex-flow: column wrap;
+  }
+
+  &__input {
+    @include input-box
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+.input-textarea {
+  height: 20rem;
+  resize: none;
+  overflow-y: auto;
 }
