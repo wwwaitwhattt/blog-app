@@ -48,13 +48,11 @@ export default {
 
 }
 
-.post-preview {
+.latest__post-preview {
   @include post-card
 }
 
-
-
-.about-author {
+.home-view__about {
   margin: 40px 0;
   font-style: italic;
 }
