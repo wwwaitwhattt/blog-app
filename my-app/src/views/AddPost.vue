@@ -2,27 +2,23 @@
     <div class="add-post">
       <h1 class="add-post__title">New post</h1>
       <form class="add-post__form" @submit.prevent="onSubmit">
-        <input type="text"
-               id="title"
-               placeholder="Title"
-               v-model="newPost.title"
-               class="add-post__input"
-               required
+        <InputDefault
+            id="title"
+            placeholder="Title"
+            v-model="newPost.title"
+            required
         />
-        <textarea
-               id="content"
-               placeholder="Content"
-               v-model="newPost.content"
-               class="add-post__input input-textarea"
-               required
-        >
-        </textarea>
-        <input type="text"
-               id="author"
-               placeholder="Author"
-               v-model="newPost.author"
-               class="add-post__input"
-               required
+        <TextareaDefault
+            id="content"
+            placeholder="Content"
+            v-model="newPost.content"
+            required
+        />
+        <InputDefault
+            id="author"
+            placeholder="Author"
+            v-model="newPost.author"
+            required
         />
 
         <div class="add-post__actions">
@@ -39,12 +35,16 @@
 </template>
 
 <script>
-import ButtonDefault from '@/components/UI/ButtonDefault'
+import ButtonDefault from '@/components/UI/ButtonDefault';
+import InputDefault from '@/components/UI/InputDefault';
+import TextareaDefault from '@/components/UI/TextareaDefault';
 import {mapMutations} from "vuex";
 
 export default {
   components: {
     ButtonDefault,
+    InputDefault,
+    TextareaDefault,
   },
   data() {
     return {

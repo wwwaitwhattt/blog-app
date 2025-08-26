@@ -2,27 +2,26 @@
     <div class="edit-post">
       <h1 class="edit-post__title">Edit post</h1>
       <form class="edit-post__form" @submit.prevent="onSubmit">
-        <input type="text"
-               id="title"
-               placeholder="Title"
-               v-model="updatedPost.title"
-               class="edit-post__input"
-               required
+        <InputDefault
+            type="text"
+            id="title"
+            placeholder="Title"
+            v-model="updatedPost.title"
+            required
         />
-        <textarea
+        <TextareaDefault
             id="content"
             placeholder="Content"
             v-model="updatedPost.content"
-            class="edit-post__input input-textarea"
             required
-        >
-        </textarea>
-        <input type="text"
-               id="author"
-               placeholder="Author"
-               v-model="updatedPost.author"
-               class="edit-post__input"
-               required
+        />
+
+        <InputDefault
+            type="text"
+            id="author"
+            placeholder="Author"
+            v-model="updatedPost.author"
+            required
         />
 
         <div class="edit-post__actions">
@@ -40,11 +39,15 @@
 
 <script>
 import ButtonDefault from '@/components/UI/ButtonDefault.vue'
+import InputDefault from '@/components/UI/InputDefault';
+import TextareaDefault from '@/components/UI/TextareaDefault';
 import {mapGetters, mapMutations} from "vuex";
 
 export default {
   components: {
     ButtonDefault,
+    InputDefault,
+    TextareaDefault,
   },
   data() {
     return {
@@ -96,11 +99,6 @@ export default {
   &__title {
     margin-bottom: 20px;
     font-weight: 700;
-
-  }
-
-  &__input {
-    @include input-box;
   }
 
   &__actions {
@@ -108,12 +106,5 @@ export default {
     justify-content: center;
     gap: 20px;
   }
-}
-
-
-.input-textarea {
-  height: 20rem;
-  resize: none;
-  overflow-y: auto;
 }
 </style>
