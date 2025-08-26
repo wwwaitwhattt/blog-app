@@ -1,5 +1,4 @@
 <template>
-  <div class="container">
     <div class="post-view" v-if="post">
       <h1 class="post-view__title">{{ post.title }}</h1>
       <p class="post-view__content">{{ post.content }}</p>
@@ -12,13 +11,12 @@
         <button-red @click="onDelete">Delete</button-red>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
 import {mapGetters, mapMutations} from "vuex";
-import ButtonRed from "@/components/ButtonRed";
-import ButtonDefault from "@/components/ButtonDefault";
+import ButtonRed from "@/components/UI/ButtonRed.vue";
+import ButtonDefault from "@/components/UI/ButtonDefault.vue";
 
 export default {
   components: {

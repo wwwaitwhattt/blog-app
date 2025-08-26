@@ -1,20 +1,30 @@
 <template>
   <div id="app">
-    <NavBar/>
-    <main class="content">
-      <router-view/>
-    </main>
-    <Footer></Footer>
+    <LayoutDefault>
+      <template v-slot:header>
+        <Header/>
+      </template>
+      <slot>
+        <router-view></router-view>
+      </slot>
+      <template v-slot:footer>
+        <Footer/>
+      </template>
+    </LayoutDefault>
   </div>
 </template>
 
 <script>
-import Footer from "./components/FooterBlock";
-import NavBar from './components/NavBar.vue'
-export default {
+import LayoutDefault from "@/components/LayoutDefault";
+import Header from "@/components/HeaderBlock"
+import Footer from "@/components/FooterBlock"
+
+export default ({
   components: {
-    NavBar,
+    LayoutDefault,
+    Header,
     Footer,
   }
-}
+})
+
 </script>

@@ -1,5 +1,4 @@
 <template>
-  <div class="container">
     <div class="edit-post">
       <h1 class="edit-post__title">New post</h1>
       <form class="edit-post__form" @submit.prevent="onSubmit">
@@ -32,12 +31,11 @@
         </div>
       </form>
     </div>
-  </div>
 </template>
 
 <script>
-import ButtonDefault from '@/components/ButtonDefault'
-import ButtonRed from '@/components/ButtonRed'
+import ButtonDefault from '@/components/UI/ButtonDefault.vue'
+import ButtonRed from '@/components/UI/ButtonRed.vue'
 import {mapGetters, mapMutations} from "vuex";
 
 export default {

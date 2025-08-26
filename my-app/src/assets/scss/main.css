@@ -26,12 +26,7 @@ body {
   background-color: #f9f9f9;
   color: #2c3e50;
   line-height: 1.6;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
+  height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -47,21 +42,8 @@ p {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-.content {
-  flex: 1;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .add-post__form, .edit-post__form {

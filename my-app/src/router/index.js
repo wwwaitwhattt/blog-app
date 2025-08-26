@@ -1,14 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/HomeView'
-import Blog from '../views/BlogView'
-import Post from '../views/PostView'
-import AddPost from '../views/AddPost'
-import EditPost from '../views/EditPost'
-// import DeletePost from '../views/DeletePost'
-import Login from '../views/LoginView'
-import About from '../views/AboutView'
-
 
 Vue.use(VueRouter)
 
@@ -16,37 +7,32 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: () => import('@/views/HomeView'),
   },
   {
     path: '/about',
     name: 'about',
-    component: About
+    component: () => import('@/views/AboutView'),
   },
   {
     path: '/blog',
     name: 'blog',
-    component: Blog
+    component: () => import('@/views/BlogView'),
   },
   {
     path: '/blog/:id',
     name: 'post',
-    component: Post
+    component: () => import('@/views/PostView'),
   },
   {
     path: '/add',
     name: 'add',
-    component: AddPost
+    component: () => import('@/views/AddPost'),
   },
   {
     path: '/edit/:id',
     name: 'edit',
-    component: EditPost
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: Login
+    component: () => import('@/views/EditPost'),
   },
 ]
 

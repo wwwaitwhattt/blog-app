@@ -1,5 +1,4 @@
 <template>
-  <div class="container">
     <div class="add-post">
       <h1 class="add-post__title">New post</h1>
       <form class="add-post__form" @submit.prevent="onSubmit">
@@ -27,17 +26,16 @@
         />
 
         <div class="add-post__actions">
-          <button-default type="submit">Save</button-default>
-          <button-red type="button" @click="onCancel">Cancel</button-red>
+          <ButtonDefault type="submit">Save</ButtonDefault>
+          <ButtonRed type="button" @click="onCancel">Cancel</ButtonRed>
         </div>
       </form>
     </div>
-  </div>
 </template>
 
 <script>
-import ButtonDefault from '@/components/ButtonDefault'
-import ButtonRed from '@/components/ButtonRed'
+import ButtonDefault from '@/components/UI/ButtonDefault.vue'
+import ButtonRed from '@/components/UI/ButtonRed.vue'
 import {mapMutations} from "vuex";
 
 export default {

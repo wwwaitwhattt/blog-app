@@ -1,10 +1,9 @@
 <template>
-  <div class="container">
     <div class="blog-view">
       <h1 class="blog-view__title">Blog Page</h1>
       <p class="blog-view__description">Here you can view all community posts.</p>
       <router-link to="/add">
-        <button-default>Add</button-default>
+        <ButtonDefault>Add</ButtonDefault>
       </router-link>
       <div class="blog-view__content">
         <router-link :to="`/blog/${post.id}`" class="post-card"
@@ -21,11 +20,10 @@
         </router-link>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
-import ButtonDefault from "@/components/ButtonDefault";
+import ButtonDefault from "@/components/UI/ButtonDefault.vue";
 
 export default {
   components: {
