@@ -7,21 +7,23 @@
         <div class="post-view__meta-author">{{post.author}}</div>
       </div>
       <div class="post-view__actions">
-        <button-default @click="$router.push(`/edit/${post.id}`)">Edit</button-default>
-        <button-red @click="onDelete">Delete</button-red>
+        <button-default @click="$router.push({name: 'edit', params: {id:post.id}})"
+                        :green="true"
+        >Edit</button-default>
+        <button-default @click="onDelete"
+                        :red="true"
+        >Delete</button-default>
       </div>
     </div>
 </template>
 
 <script>
 import {mapGetters, mapMutations} from "vuex";
-import ButtonRed from "@/components/UI/ButtonRed.vue";
-import ButtonDefault from "@/components/UI/ButtonDefault.vue";
+import ButtonDefault from "@/components/UI/ButtonDefault";
 
 export default {
   components: {
-    ButtonDefault,
-    ButtonRed,
+    ButtonDefault
   },
  data() {
    return {
@@ -38,7 +40,7 @@ export default {
     ...mapMutations(['deletePost']),
     onDelete() {
       this.deletePost(this.post.id);
-      this.$router.push('/blog');
+      this.$router.push({name: 'blog'})
     },
   }
 }
@@ -50,25 +52,25 @@ export default {
   @include post-card;
   gap: 20px;
 
+  &__title{
+    font-weight: 700;
+  }
+
   &__content {
     text-align: left;
   }
 
   &__actions {
     display: flex;
-    flex-flow: row nowrap;
     justify-content: center;
     gap: 1rem;
   }
 
   &__meta {
     display: flex;
-    flex-flow: row nowrap;
     justify-content: space-between;
     color: rgba(44, 62, 80, 0.7);
   }
 
 }
-
-
 </style>

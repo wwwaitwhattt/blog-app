@@ -2,36 +2,35 @@
     <div class="blog-view">
       <h1 class="blog-view__title">Blog Page</h1>
       <p class="blog-view__description">Here you can view all community posts.</p>
-      <router-link to="/add">
+
+      <router-link :to="{name: 'add'}">
         <ButtonDefault>Add</ButtonDefault>
       </router-link>
+
       <div class="blog-view__content">
-        <router-link :to="`/blog/${post.id}`" class="post-card"
-             v-for="post in posts"
-             :key="post.id"
-             @click="$router.push(`/blog/${post.id}`)"
-        >
-          <h2 class="post-card__title">{{ post.title }}</h2>
-          <p class="post-card__content">{{ post.content.slice(0,200) }}...</p>
-          <div class="post-card__meta">
-            <div class="post-card__meta-date">{{post.date}}</div>
-            <div class="post-card__meta-author">{{post.author}}</div>
-          </div>
-        </router-link>
+        <PostCard
+          v-for="post in posts"
+          :key="post.id"
+          :post="post"
+        />
       </div>
     </div>
 </template>
 
 <script>
 import ButtonDefault from "@/components/UI/ButtonDefault.vue";
+import PostCard from "@/components/PostCard";
+import { mapGetters } from "vuex";
 
 export default {
   components: {
-    ButtonDefault
+    ButtonDefault,
+    PostCard,
   },
   computed: {
+    ...mapGetters(['getAllPosts']),
     posts() {
-      return this.$store.state.posts
+      return this.getAllPosts
     }
   }
 }
@@ -45,6 +44,10 @@ export default {
 
 }
 
+.blog-view__title {
+  font-weight: 700;
+}
+
 .blog-view__title, .blog-view__description {
   margin-bottom: 20px;
 }
@@ -54,25 +57,6 @@ export default {
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 20px;
-}
-
-.post-card {
-  @include post-card;
-  cursor: pointer;
-  gap:20px;
-
-  &__content {
-    text-align: left;
-    flex: 1;
-  }
-
-  &__meta {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    font-size: $font-size-small;
-    color: rgba(44, 62, 80, 0.7);
-  }
 }
 
 </style>

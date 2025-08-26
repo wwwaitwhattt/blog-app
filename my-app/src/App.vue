@@ -4,9 +4,7 @@
       <template v-slot:header>
         <Header/>
       </template>
-      <slot>
-        <router-view></router-view>
-      </slot>
+      <router-view></router-view>
       <template v-slot:footer>
         <Footer/>
       </template>

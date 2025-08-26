@@ -1,19 +1,19 @@
 <template>
   <div class="wrapper">
     <slot name="header"/>
-    <LayoutComponent>
+    <LayoutContainer>
       <slot></slot>
-    </LayoutComponent>
+    </LayoutContainer>
     <slot name="footer"/>
   </div>
 </template>
 
 <script>
-import LayoutComponent from './LayoutComponent';
+import LayoutContainer from './LayoutContainer';
 
 export default {
   components: {
-    LayoutComponent
+    LayoutContainer
   }
 }
 </script>
@@ -21,7 +21,7 @@ export default {
 <style scoped lang="scss">
 
 .wrapper {
-  height: 100%;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;

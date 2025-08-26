@@ -30,6 +30,7 @@
   padding: 20px 0;
   width: 100%;
   text-align: center;
+  margin-top: 20px;
 }
 
 .footer__text a{

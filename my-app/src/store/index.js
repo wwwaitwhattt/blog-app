@@ -10,7 +10,8 @@ export default new Vuex.Store({
   getters: {
     getPostById: (state) => (id) => {
       return state.posts.find(post => post.id === id)
-    }
+    },
+    getAllPosts: state => state.posts
   },
   mutations: {
     deletePost: (state, id) => {

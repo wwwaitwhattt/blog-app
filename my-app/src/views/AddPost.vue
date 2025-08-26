@@ -26,22 +26,25 @@
         />
 
         <div class="add-post__actions">
-          <ButtonDefault type="submit">Save</ButtonDefault>
-          <ButtonRed type="button" @click="onCancel">Cancel</ButtonRed>
+          <ButtonDefault type="submit"
+                         :green="true"
+          >Save</ButtonDefault>
+          <ButtonDefault type="button"
+                         @click="onCancel"
+                         :red="true"
+          >Cancel</ButtonDefault>
         </div>
       </form>
     </div>
 </template>
 
 <script>
-import ButtonDefault from '@/components/UI/ButtonDefault.vue'
-import ButtonRed from '@/components/UI/ButtonRed.vue'
+import ButtonDefault from '@/components/UI/ButtonDefault'
 import {mapMutations} from "vuex";
 
 export default {
   components: {
     ButtonDefault,
-    ButtonRed,
   },
   data() {
     return {
@@ -66,7 +69,7 @@ export default {
       this.$router.back()
     },
     onCancel() {
-      this.$router.push('/blog')
+      this.$router.push({name: 'blog'})
     }
   }
 }
@@ -75,6 +78,9 @@ export default {
 <style scoped lang="scss">
 
 .add-post{
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 
   &__form {
     display: flex;
@@ -86,7 +92,11 @@ export default {
     min-width: 280px;
     background: #fff;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    flex-flow: column wrap;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-weight: 700;
   }
 
   &__input {
@@ -105,6 +115,4 @@ export default {
   resize: none;
   overflow-y: auto;
 }
-
-
 </style>
