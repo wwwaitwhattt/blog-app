@@ -4,7 +4,9 @@
       <p class="blog-view__description">Here you can view all community posts.</p>
 
       <router-link :to="{name: 'add'}">
-        <ButtonDefault>Add</ButtonDefault>
+        <ButtonDefault
+            :default="true"
+        >Add</ButtonDefault>
       </router-link>
 
       <div class="blog-view__content">

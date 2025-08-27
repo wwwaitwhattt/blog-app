@@ -40,6 +40,7 @@ import InputDefault from '@/components/UI/InputDefault';
 import TextareaDefault from '@/components/UI/TextareaDefault';
 
 export default {
+  name: 'PostForm',
   components: {
     ButtonDefault,
     InputDefault,

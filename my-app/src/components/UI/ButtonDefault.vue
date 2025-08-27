@@ -1,5 +1,5 @@
 <template>
-  <button class="button-default"
+  <button class="button-base"
           :class="className"
           @click="click"
           v-bind="$attrs"
@@ -10,12 +10,17 @@
 
 <script>
 export default {
+  name: 'AppButton',
   props: {
     red: {
       type: Boolean,
       default: false
     },
     green: {
+      type: Boolean,
+      default: false
+    },
+    default: {
       type: Boolean,
       default: false
     }
@@ -28,6 +33,7 @@ export default {
       return {
         'button-red': this.red,
         'button-green': this.green,
+        'button-default': this.default,
       }
     }
 
@@ -42,8 +48,12 @@ export default {
 
 <style scoped lang="scss">
 
-.button-default {
+.button-base {
   @include button-base;
+
+}
+
+.button-default {
   background-color: rgba(255, 255, 255, 0.76);
   color: rgb(44, 62, 80);
   &:hover {

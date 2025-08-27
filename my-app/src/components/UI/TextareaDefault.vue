@@ -1,16 +1,15 @@
 <template>
-  <div class="base-textarea">
     <textarea
         :id="id"
         :placeholder="placeholder"
-        class="base-textarea__field"
+        class="textarea__field"
         v-model="valueActions"
     />
-  </div>
 </template>
 
 <script>
 export default {
+  name: 'AppTextarea',
   props: {
     value: String,
     id: String,
@@ -19,7 +18,7 @@ export default {
   computed: {
     valueActions: {
       set(value) {
-        return this.$emit("input", value)
+        this.$emit("input", value)
       },
       get() {
         return this.value
@@ -30,7 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.base-textarea__field {
+.textarea__field {
   @include input-box;
   height: 20rem;
   resize: none;

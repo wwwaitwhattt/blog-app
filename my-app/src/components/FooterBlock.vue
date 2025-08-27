@@ -3,14 +3,11 @@
       <p class="footer__text">© 2025 This is my personal project for Vue2 studies. Check my <a href="https://github.com/wwwaitwhattt">GitHub</a></p>
       <nav class="footer__navbar">
         <ul class="navbar__list">
-          <li class="navbar__item">
-            <router-link to="/">Home</router-link>
-          </li>
-          <li>
-            <router-link to="/about">About</router-link>
-          </li>
-          <li>
-            <router-link to="/blog">Blog</router-link>
+          <li class="navbar__item"
+              v-for="link in links"
+              :key="link.id"
+          >
+            <router-link :to="link.to">{{ link.name }}</router-link>
           </li>
         </ul>
       </nav>
@@ -18,6 +15,18 @@
 </template>
 
 <script>
+export default {
+  name: 'AppFooter',
+  data() {
+    return{
+      links: [
+        {id: 1, name: "Home", to: "/"},
+        {id: 2, name: "About", to: "/about"},
+        {id: 3, name: "Blog", to: "/blog"},
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

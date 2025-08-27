@@ -1,17 +1,16 @@
 <template>
-  <div class="input-default">
     <input :type="type"
            :id="id"
            :placeholder="placeholder"
-           class="input-default__field"
+           class="input__field"
            v-model="valueActions"
            required
     />
-  </div>
 </template>
 
 <script>
 export default {
+  name: 'AppInput',
   props: {
     id: String,
     value: String,
@@ -35,7 +34,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.input-default__field {
+.input__field {
   @include input-box;
 }
 </style>
