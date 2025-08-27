@@ -57,6 +57,7 @@ export default {
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 20px;
+  margin-top: 20px;
 }
 
 </style>

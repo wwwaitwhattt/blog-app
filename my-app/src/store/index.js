@@ -31,6 +31,15 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    deletePost({ commit }, id) {
+      commit('deletePost', id)
+    },
+    addPost({ commit }, post) {
+      commit('addPost', post)
+    },
+    editPost({ commit }, updatedPost) {
+      commit('editPost', updatedPost)
+    }
   },
   modules: {
   }

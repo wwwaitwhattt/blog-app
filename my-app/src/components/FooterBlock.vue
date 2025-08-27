@@ -1,8 +1,5 @@
 <template>
   <footer class="app-footer">
-    <div class="container">
-
-    </div>
       <p class="footer__text">© 2025 This is my personal project for Vue2 studies. Check my <a href="https://github.com/wwwaitwhattt">GitHub</a></p>
       <nav class="footer__navbar">
         <ul class="navbar__list">

@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="app-header">
     <nav class="header__navbar">
       <ul class="header__navbar__list">
         <li

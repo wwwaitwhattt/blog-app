@@ -1,53 +1,19 @@
 <template>
-    <div class="edit-post">
-      <h1 class="edit-post__title">Edit post</h1>
-      <form class="edit-post__form" @submit.prevent="onSubmit">
-        <InputDefault
-            type="text"
-            id="title"
-            placeholder="Title"
-            v-model="updatedPost.title"
-            required
-        />
-        <TextareaDefault
-            id="content"
-            placeholder="Content"
-            v-model="updatedPost.content"
-            required
-        />
-
-        <InputDefault
-            type="text"
-            id="author"
-            placeholder="Author"
-            v-model="updatedPost.author"
-            required
-        />
-
-        <div class="edit-post__actions">
-          <button-default type="submit"
-                          :green="true"
-          >Save</button-default>
-          <button-default type="button"
-                          @click="onCancel"
-                          :red="true"
-          >Cancel</button-default>
-        </div>
-      </form>
-    </div>
+  <FormBlock
+      v-model="updatedPost"
+      title="Edit Post"
+      @submit="onSubmit"
+      @cancel="onCancel"
+  ></FormBlock>
 </template>
 
 <script>
-import ButtonDefault from '@/components/UI/ButtonDefault.vue'
-import InputDefault from '@/components/UI/InputDefault';
-import TextareaDefault from '@/components/UI/TextareaDefault';
-import {mapGetters, mapMutations} from "vuex";
+import FormBlock from "@/components/FormBlock";
+import {mapGetters, mapActions} from "vuex";
 
 export default {
   components: {
-    ButtonDefault,
-    InputDefault,
-    TextareaDefault,
+    FormBlock,
   },
   data() {
     return {
@@ -67,11 +33,17 @@ export default {
   },
   created() {
     if (this.post) {
-      this.updatedPost = this.post;
+      this.updatedPost ={
+        id: this.post.id,
+        title: this.post.title,
+        content: this.post.content,
+        author: this.post.author,
+        date: this.post.date,
+      }
     }
   },
   methods: {
-    ...mapMutations(['editPost']),
+    ...mapActions(['editPost']),
     onSubmit() {
       this.editPost(this.updatedPost)
       this.$router.push({name: 'blog'})

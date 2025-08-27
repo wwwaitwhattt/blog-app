@@ -2,14 +2,14 @@
     <div class="about-page">
       <h1 class="about-page__title">About</h1>
       <p class="about-page__description">
-        Это простой блог на Vue.js, сделанный в учебных целях.
-        Исходный код проекта доступен на GitHub:
+        Simple Vue2 project. Made for my study.
+        Source code available on GitHub:
       </p>
       <p class="about-page__description">
         <a
             class="about-page__link"
             href="https://github.com/wwwaitwhattt/blog-app" target="_blank">
-          GitHub репозиторий
+          GitHub repository
         </a>
       </p>
     </div>
